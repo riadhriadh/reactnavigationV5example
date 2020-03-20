@@ -9,6 +9,9 @@
 import React from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
+import { Provider } from 'react-redux'
+
+import {store} from './src/redux/store/index'
 import {
   SafeAreaView,
   StyleSheet,
@@ -29,9 +32,11 @@ import { AuthStack } from './routers';
 
 const App: () => React$Node = () => {
   return (
+    <Provider store={store}>
     <NavigationContainer>
       <AuthStack></AuthStack>
       </NavigationContainer>
+      </Provider>
   );
 };
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text,Button } from 'react-native';
-
-export default class Login extends Component {
+import { connect } from "react-redux";
+import { getPersistedUserAuth, getOpenMode } from "@actions";
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,15 +13,11 @@ export default class Login extends Component {
     return (
       <View>
         <Text> Login </Text>
-        <Button
-        title="log me in"
-        onPress={() => {
-          login();
-        }}
-      />
+      
       <Button
         title="go to register"
         onPress={() => {
+          this.props.getPersistedUserAuth("helllo");
           this.props.navigation.navigate("Register");
         }}
       />
@@ -28,3 +25,22 @@ export default class Login extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  const auth = state.auth;
+  const providers = state.providers;
+  return {
+    auth,
+    providers
+  };
+};
+
+const mapDispatchToProps = {
+  getPersistedUserAuth,
+  getOpenMode
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
