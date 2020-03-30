@@ -20,7 +20,7 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-
+import {AllStack}  from './rout'
 import {
   Header,
   LearnMoreLinks,
@@ -28,13 +28,13 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { AuthStack } from './routers';
+
 
 const App: () => React$Node = () => {
   return (
     <Provider store={store}>
     <NavigationContainer>
-      <AuthStack></AuthStack>
+ <AllStack></AllStack>
       </NavigationContainer>
       </Provider>
   );

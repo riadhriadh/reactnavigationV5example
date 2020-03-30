@@ -18,7 +18,7 @@ class Login extends Component {
         title="go to register"
         onPress={() => {
           this.props.getPersistedUserAuth("helllo");
-          this.props.navigation.navigate("Register");
+          this.props.navigation.navigate("Home");
         }}
       />
       </View>

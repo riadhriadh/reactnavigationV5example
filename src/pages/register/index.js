@@ -14,7 +14,7 @@ export default class Register extends Component {
           <Button
         title="go to register"
         onPress={() => {
-          this.props.navigation.navigate("Login");
+          this.props.navigation.toggleDrawer();
         }}
       />
       </View>
